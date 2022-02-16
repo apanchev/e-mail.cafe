@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <%- include('head.ejs') %>
+  <style>
+    .form-group {
+      position: relative;
+    }
+    .form-groups:after {
+      color: grey;
+      position: absolute;
+      right: 8px;
+      top: 10px;
+      content: '@e-mail.cafe';
+    }
+    .ft_container {
+      min-height: calc(99vh - 70px)!important;
+    }
+    @media screen and (max-width: 400px) {
+      .content {
+        padding-top: 10vh!important;
+        /* min-height: calc(100vh - 30px)!important; */
+      }
+      .ft_container {
+        min-height: calc(90vh - 70px)!important;
+      }
+    }
+    @media screen and (max-height: 550px) {
+      .footer {
+        padding-top:15vh;
+      }
+    }
+    @media screen and (max-height: 470px) {
+      .footer {
+        padding-top:20vh;
+      }
+    }
+    @media screen and (max-height: 445px) {
+      .footer {
+        padding-top:30vh;
+      }
+    }
+    @media screen and (max-height: 390px) {
+      .footer {
+        padding-top:40vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-transparent navbar-absolute">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button> -->
+        <a class="navbar-brand" href="/">Service d'e-mail temporaire</a>
+      </div>
+      <div class="collapse navbar-collapse">
+
+        <ul class="nav navbar-nav navbar-right">
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrapper wrapper-full-page">
+
+    <div class="full-page lock-page" data-color="orange" data-image="">
+
+      <!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
+      <div class="content ft_container">
+        <form method="post" action="/">
+          <div class="user-profile">
+            <div class="author" style="border-radius: 0%; width: 100%; height: 100%; border:0;">
+              <img class="avatar" src="img/coffee.png" style="width: 60%;">
+            </div>
+            <h4>E-mail Café</h4>
+              <div class="form-group form-groups">
+                <input type="text" placeholder="" class="form-control" name="login" autofocus>
+              </div>
+              <div class="form-group" style="color:white;">
+                En utilisant ce service, vous acceptez les <a style="color:grey;" href="/cgu">conditions générales d'utilisation</a>
+              </div>
+            <button type="submit" class="btn btn-neutral btn-round btn-fil btn-wd">Valider</button>
+          </div>
+        </form>
+      </div>
+
+      <footer class="footer footer-transparent">
+        <div class="container">
+          <nav class="pull-left">
+            <ul>
+              <li>
+                <a href="/about">
+                  Comment utiliser ce service ?
+                </a>
+              </li>
+              <li>
+                <a href="/cgu">
+                  Conditions générales d'utilisation
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <p class="copyright pull-right">
+            &copy; <script>document.write(new Date().getFullYear())</script> <a href="/">E-mail Café</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+  </div>
+
+
+</body>
