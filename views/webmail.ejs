@@ -1,183 +1,186 @@
 <!doctype html>
 <html lang="fr">
-	<head>
-		<!-- <base target="_blank">  -->
-		<%- include('head') %>
-		<script>
-			function resizeIframe(obj) {
-				obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-			}
-		</script>
-	</head>
-	<body>
+  <head>
+    <!-- <base target="_blank">  -->
+    <%- include('head') %>
+    <script>
+      function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+      }
+    </script>
+  </head>
+  <body>
 
-		<div class="wrapper">
-			<div class="sidebar" data-color="orange">
-				<!--
+    <div class="wrapper">
+      <div class="sidebar" data-color="orange">
+        <!--
 
-				Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-				Tip 2: you can also add an image using data-image tag
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
 
-			-->
+      -->
 
-			<div class="logo">
-				<a href="/" class="logo-text">
-					E-mail Café
-				</a>
-			</div>
-			<div class="logo logo-mini">
-				<a href="/" class="logo-text">
-					E-mail Café
-				</a>
-			</div>
+      <div class="logo">
+        <a href="/" class="logo-text">
+          E-mail Café
+        </a>
+      </div>
+      <div class="logo logo-mini">
+        <a href="/" class="logo-text">
+          E-mail Café
+        </a>
+      </div>
 
-			<div class="sidebar-wrapper">
+      <div class="sidebar-wrapper">
 
-				<div class="user">
-					<div class="photo" style="width: 100px; height:100%; overflow: initial; border: 0;">
-						<img src="/img/coffee.png" />
-					</div>
-					<div class="info">
-						<a data-toggle="collapse" class="collapsed" style="font-weight:bold;word-wrap: break-word;">
-							<%= login %>@e-mail.cafe
-						</a>
-					</div>
-				</div>
+        <div class="user">
+          <div class="photo" style="width: 100px; height:100%; overflow: initial; border: 0;">
+            <img src="/img/coffee.png" />
+          </div>
+          <div class="info">
+            <a data-toggle="collapse" class="collapsed" style="font-weight:bold;word-wrap: break-word;">
+              <%= login %>@e-mail.cafe
+            </a>
+          </div>
+        </div>
 
-				<ul class="nav">
-				</ul>
-			</div>
-		</div>
+        <ul class="nav">
+        </ul>
+      </div>
+    </div>
 
-		<div class="main-panel">
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-minimize">
+    <div class="main-panel">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-minimize">
 
-					</div>
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="/inbox/<%= login %>">Boîte de réception</a>
-					</div>
-					<div class="collapse navbar-collapse navbar-right">
+          </div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/inbox/<%= login %>">Boîte de réception</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right">
 
-						<form class="navbar-form navbar-left navbar-search-form" role="search" method="post" action="/">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-search"></i></span>
-								<input type="text" name="login" class="form-control" placeholder="Boîte de réception">
-							</div>
-						</form>
+            <form class="navbar-form navbar-left navbar-search-form" role="search" method="post" action="/">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" name="login" class="form-control" placeholder="Boîte de réception">
+              </div>
+            </form>
 
-					</div>
-				</div>
-			</nav>
-
-
-
-			<div class="content">
-				<div class="container-fluid">
-					<div class="row">
-
-						<div class="nav-container">
-							<ul class="nav nav-icons" role="tablist">
-								<li>
-									<a role="tab" data-toggle="tab">
-										<a href="/inbox/<%= login %>/message/<%= id %>/download" target="_blank">
-											<i class="fa fa-download"></i><br>
-											Enregistrer
-										</a>
-									</a>
-								</li>
-								<li>
-									<a href="#map-logo" role="tab" data-toggle="tab">
-										<a href="#">
-											<i class="fa fa-warning"></i><br>
-											Signaler
-										</a>
-									</a>
-								</li>
-							</ul>
-						</div>
-
-						<div class="col-md-12" style="margin-top: 25px;">
-							<div class="card">
-								<div class="content">
-									<div class="panel-group" id="accordion">
-										<div class="panel panel-default">
-											<div class="panel-heading">
-												<h4 class="panel-title">
-													<a data-target="#collapseOne" href="#" data-toggle="collapse" class="" aria-expanded="true">
-														Code source de l'e-mail
-
-														<b class="caret"></b>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseOne" class="panel-collapse collapse">
-												<div class="panel-body">
-													<textarea name="name" style="min-width: 100%; max-width: 100%;" rows="10" readonly><%= source %></textarea>
-												</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<div class="panel-heading">
-												<h4 class="panel-title">
-													<a data-target="#collapseTwo" href="#" data-toggle="collapse">
-														Preview de l'e-mail
-
-														<b class="caret"></b>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseTwo" class="panel-collapse collapse in" aria-expanded="true">
-												<div class="panel-body">
-
-													<iframe src="/inbox/<%= login %>/message/<%= id %>/unsafe" width="100%" frameborder="0" scrolling="yes" onload="resizeIframe(this)" sandbox='allow-same-origin allow-popups'></iframe>
-
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-
-							</div><!--  end card  -->
-						</div> <!-- end col-md-12 -->
-					</div> <!-- end row -->
-
-				</div>
-			</div>
-
-			<footer class="footer">
-				<div class="container-fluid">
-					<nav class="pull-left">
-						<ul>
-							<li>
-								<a href="/">
-									Home
-								</a>
-							</li>
-							<li>
-								<a href="/about">
-									Comment utiliser notre service ?
-								</a>
-							</li>
-						</ul>
-					</nav>
-					<p class="copyright pull-right">
-						&copy; 2018 - <script>document.write(new Date().getFullYear())</script> - <a href="/">E-mail Café</a>
-					</p>
-				</div>
-			</footer>
+          </div>
+        </div>
+      </nav>
 
 
-		</div>
-	</div>
+
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+
+            <div class="nav-container">
+              <ul class="nav nav-icons" role="tablist">
+                <li>
+                  <a role="tab" data-toggle="tab">
+                    <a href="/inbox/<%= login %>/message/<%= id %>/download" target="_blank">
+                      <i class="fa fa-download"></i><br>
+                      Enregistrer
+                    </a>
+                  </a>
+                </li>
+                <li>
+                  <a href="#map-logo" role="tab" data-toggle="tab">
+                    <a href="#">
+                      <i class="fa fa-warning"></i><br>
+                      Signaler
+                    </a>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-12" style="margin-top: 25px;">
+              <div class="card">
+                <div class="content">
+                  <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-target="#collapseOne" href="#" data-toggle="collapse" class="" aria-expanded="true">
+                            Code source de l'e-mail
+
+                            <b class="caret"></b>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <textarea name="name" style="min-width: 100%; max-width: 100%;" rows="10" readonly><%= source %></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-target="#collapseTwo" href="#" data-toggle="collapse">
+                            Preview de l'e-mail
+
+                            <b class="caret"></b>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse in" aria-expanded="true">
+                        <div class="panel-body">
+
+                          <iframe src="/inbox/<%= login %>/message/<%= id %>/unsafe" width="100%" frameborder="0" scrolling="yes" onload="resizeIframe(this)" sandbox='allow-same-origin allow-popups'></iframe>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div><!--  end card  -->
+            </div> <!-- end col-md-12 -->
+          </div> <!-- end row -->
+
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav class="pull-left">
+            <ul>
+              <li>
+                <a href="/">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/about">
+                  Comment utiliser notre service ?
+                </a>
+              </li>
+              <li>
+                <a href="/cgu">Conditions générales d'utilisation</a>
+              </li>
+            </ul>
+          </nav>
+          <p class="copyright pull-right">
+            &copy; 2018 - <script>document.write(new Date().getFullYear())</script> - <a href="/">E-mail Café</a>
+          </p>
+        </div>
+      </footer>
+
+
+    </div>
+  </div>
 
 
 </body>
@@ -197,40 +200,40 @@
 var $table = $('#bootstrap-table');
 
 $().ready(() => {
-	$table.bootstrapTable({
-		toolbar: ".toolbar",
-		clickToSelect: true,
-		showRefresh: false,
-		search: true,
-		showToggle: false,
-		showColumns: true,
-		pagination: true,
-		searchAlign: 'left',
-		pageSize: 8,
-		clickToSelect: false,
-		pageList: [8,10,25,50,100],
+  $table.bootstrapTable({
+    toolbar: ".toolbar",
+    clickToSelect: true,
+    showRefresh: false,
+    search: true,
+    showToggle: false,
+    showColumns: true,
+    pagination: true,
+    searchAlign: 'left',
+    pageSize: 8,
+    clickToSelect: false,
+    pageList: [8,10,25,50,100],
 
-		formatShowingRows: function(pageFrom, pageTo, totalRows){
-			//do nothing here, we don't want to show the text "showing x of y from..."
-		},
-		formatRecordsPerPage: function(pageNumber){
-			return pageNumber + " rows visible";
-		},
-		icons: {
-			refresh: 'fa fa-refresh',
-			toggle: 'fa fa-th-list',
-			columns: 'fa fa-columns',
-			detailOpen: 'fa fa-plus-circle',
-			detailClose: 'fa fa-minus-circle'
-		}
-	});
+    formatShowingRows: function(pageFrom, pageTo, totalRows){
+      //do nothing here, we don't want to show the text "showing x of y from..."
+    },
+    formatRecordsPerPage: function(pageNumber){
+      return pageNumber + " rows visible";
+    },
+    icons: {
+      refresh: 'fa fa-refresh',
+      toggle: 'fa fa-th-list',
+      columns: 'fa fa-columns',
+      detailOpen: 'fa fa-plus-circle',
+      detailClose: 'fa fa-minus-circle'
+    }
+  });
 
-	//activate the tooltips after the data table is initialized
-	$('[rel="tooltip"]').tooltip();
+  //activate the tooltips after the data table is initialized
+  $('[rel="tooltip"]').tooltip();
 
-	$(window).resize(() => {
-		$table.bootstrapTable('resetView');
-	});
+  $(window).resize(() => {
+    $table.bootstrapTable('resetView');
+  });
 });
 
 </script>
