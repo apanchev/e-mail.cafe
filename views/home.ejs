@@ -1,120 +1,59 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <%- include('head.ejs') %>
-  <style>
-    .form-group {
-      position: relative;
-    }
-    .form-groups:after {
-      color: grey;
-      position: absolute;
-      right: 8px;
-      top: 10px;
-      content: '@e-mail.cafe';
-    }
-    .ft_container {
-      min-height: calc(99vh - 70px)!important;
-    }
-    @media screen and (max-width: 400px) {
-      .content {
-        padding-top: 10vh!important;
-        /* min-height: calc(100vh - 30px)!important; */
-      }
-      .ft_container {
-        min-height: calc(90vh - 70px)!important;
-      }
-    }
-    @media screen and (max-height: 550px) {
-      .footer {
-        padding-top:15vh;
-      }
-    }
-    @media screen and (max-height: 470px) {
-      .footer {
-        padding-top:20vh;
-      }
-    }
-    @media screen and (max-height: 445px) {
-      .footer {
-        padding-top:30vh;
-      }
-    }
-    @media screen and (max-height: 390px) {
-      .footer {
-        padding-top:40vh;
-      }
-    }
-  </style>
-</head>
-<body>
-  <nav class="navbar navbar-transparent navbar-absolute">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button> -->
-        <a class="navbar-brand" href="/">Service d'e-mail temporaire</a>
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+  <head>
+    <%- include('head.ejs') %>
+  </head>
+  <body class="h-full bg-custom">
+    <div class="flex min-h-full flex-col justify-center py-8 sm:px-6 lg:px-8">
+      <div class="text-white font-medium">
+        <span>Service d'e-mail temporaire</span>
       </div>
-      <div class="collapse navbar-collapse">
-
-        <ul class="nav navbar-nav navbar-right">
-
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div class="wrapper wrapper-full-page">
-
-    <div class="full-page lock-page" data-color="orange" data-image="">
-
-      <!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
-      <div class="content ft_container">
-        <form method="post" action="/">
-          <div class="user-profile">
-            <div class="author" style="border-radius: 0%; width: 100%; height: 100%; border:0;">
-              <img class="avatar" src="img/coffee.png" style="width: 60%;">
-            </div>
-            <h4>E-mail Café</h4>
-              <div class="form-group form-groups">
-                <input type="text" placeholder="" class="form-control" name="login" autofocus>
-              </div>
-              <div class="form-group" style="color:white;">
-                En utilisant ce service, vous acceptez les <a style="color:grey;" href="/cgu">conditions générales d'utilisation</a>
-              </div>
-            <button type="submit" class="btn btn-neutral btn-round btn-fil btn-wd">Valider</button>
-          </div>
-        </form>
-      </div>
-
-      <footer class="footer footer-transparent">
-        <div class="container">
-          <nav class="pull-left">
-            <ul>
-              <li>
-                <a href="/about">
-                  Comment utiliser ce service ?
-                </a>
-              </li>
-              <li>
-                <a href="/cgu">
-                  Conditions générales d'utilisation
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <p class="copyright pull-right">
-            &copy; 2018 - <script>document.write(new Date().getFullYear())</script> <a href="/">E-mail Café</a>
-          </p>
+      <div class="flex flex-col justify-center flex-1 mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div class="flex justify-center">
+          <img class="w-36" src="img/coffee.png">
         </div>
-      </footer>
+        <div class="font-bold mt-4 text-xl text-center text-white text-medium">
+          E-mail Café
+        </div>
+        <div class="py-8 px-4">
+          <form class="space-y-6" action="/" method="POST">
+            <div class="flex w-full h-12 rounded-lg border border-2 border-transparent focus-within:border-black">
+              <input type="text" name="login" id="email" class="block w-full min-w-0 flex-1 rounded-none rounded-l-md border-white sm:text-sm px-4 outline-none border-none">
+              <label for="email" class="inline-flex items-center bg-white rounded-r-md px-3 text-black sm:text-sm">@e-mail.cafe</span>
+            </div>
+
+            <div class="flex items-center justify-between text-center">
+              <div class="text-sm text-white">
+                En utilisant ce service, vous acceptez les
+                <a
+                  href="/cgu"
+                  class="font-medium underline hover:text-black"
+                  >conditions générales d'utilisation</a
+                >
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                class="flex w-full justify-center rounded-full border border-1 border-white py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-white hover:text-black focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1"
+              >
+                Valider
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="flex justify-between text-white">
+        <div class="flex">
+          <a href="/about" class="mr-5 hover:text-black">Coment utiliser ce service ?</a>
+          <a href="/cgu" class="hover:text-black">Conditions Générales d'Utilisation</a>
+        </div>
+        <div class="flex items-center">
+          &copy; 2018 - <script>document.write(new Date().getFullYear())</script>
+          <a href="/" class="ml-5 hover:text-black">E-mail Café</a>
+        </div>
+      </div>
     </div>
-
-  </div>
-
-
-</body>
+  </body>
+</html>
