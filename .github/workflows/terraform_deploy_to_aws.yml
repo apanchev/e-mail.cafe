@@ -2,7 +2,7 @@ name: terraform_deploy_to_aws
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "prod" ]
 
 jobs:
   build_plan_apply:
