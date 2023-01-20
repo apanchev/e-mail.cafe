@@ -34,3 +34,20 @@ data "aws_iam_policy_document" "mail_policy" {
     }
   }
 }
+
+resource "aws_s3_bucket_lifecycle_configuration" "delete" {
+  bucket = aws_s3_bucket.mail.id
+
+  rule {
+    id     = "delete-rule"
+    status = "Enabled"
+
+    filter {
+      prefix = "inbox/"
+    }
+
+    expiration {
+      days = 2
+    }
+  }
+}
