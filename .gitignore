@@ -44,3 +44,4 @@ terraform.rc
 .terraform.lock.hcl
 
 env.tfvars
+package-lock.json

@@ -1,19 +1,19 @@
-<center><h1>e-mail.cafe</h1></center>
 <p align="center">
-  <img src="https://e-mail.cafe/img/coffee.png" width="150" title="hover text">
-</p><br/><br/>
+  <a href="https://e-mail.cafe" target="blank"><img src="https://e-mail.cafe/img/coffee.png" width="150" title="hover text"></a>
+</p>
+<p align="center"><a href="https://e-mail.cafe" target="blank"><strong>https://e-mail.cafe</strong></a></p><br/>
 
-<h2>Project description</h2>
+## Project description
+Open source temporary e-mail provider using `Terraform`, `Typescript` & `Node.js`
 
-Open source temporary e-mail provider coded using `Typescript` & `Node.js`. 
-```bash
-https://e-mail.cafe
+## Deploy to AWS:
+
+> ⚠️ - An AWS route53 zone named by the domain name must be present in the account.</br>
+
+Insert S3 bucket variables to store Terraform state in `backend_config/aws.tfvars`</br>
+Insert domain name in `tfvars_files/aws.tfvars`</br>
+
+Run deployment:
 ```
-
-# AWS
-Follow these steps if you want to deploy the project on AWS.
-<br/>This configuration is fully based on AWS managed services.
-<br/>Go to the path `~/terraform/aws`.
-
-# OVH
-This is the front part of the project, the back is using `postfix` to receive e-mails and a `python3` script to manage them.
+make deploy-aws
+```
