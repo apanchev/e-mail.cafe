@@ -15,9 +15,12 @@ export class InboxService {
     };
     const s3 = new S3({ region: process.env.AWS_REGION });
     const mailList = await s3.listObjectsV2(s3ParamsList);
-    const mailListSorted = mailList.Contents.sort(
-      (a, b) => b['LastModified'].getTime() - a['LastModified'].getTime(),
-    );
+    this.logger.debug(mailList);
+    const mailListSorted = mailList.KeyCount
+      ? mailList.Contents.sort(
+          (a, b) => b['LastModified'].getTime() - a['LastModified'].getTime(),
+        )
+      : [];
     const mailInfos = [];
 
     this.logger.debug(process.env.AWS_BUCKET);
