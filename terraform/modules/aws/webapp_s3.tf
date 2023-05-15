@@ -10,11 +10,6 @@ resource "aws_s3_bucket" "codebuild" {
   bucket = "codebuild-${local.resource_suffix}"
 }
 
-resource "aws_s3_bucket_acl" "codebuild" {
-  bucket = aws_s3_bucket.codebuild.id
-  acl    = "private"
-}
-
 resource "aws_s3_bucket_versioning" "codebuild" {
   bucket = aws_s3_bucket.codebuild.id
   versioning_configuration {

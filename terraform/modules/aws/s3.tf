@@ -2,11 +2,6 @@ resource "aws_s3_bucket" "inbox" {
   bucket = "inbox-${local.resource_suffix}"
 }
 
-resource "aws_s3_bucket_acl" "inbox" {
-  bucket = aws_s3_bucket.inbox.id
-  acl    = "private"
-}
-
 resource "aws_s3_bucket_policy" "inbox" {
   bucket = aws_s3_bucket.inbox.id
   policy = data.aws_iam_policy_document.inbox_policy.json

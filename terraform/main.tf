@@ -1,6 +1,6 @@
-
-
 module "aws" {
+  count  = var.deploy_aws ? 1 : 0
+
   source = "./modules/aws"
 
   env         = var.env

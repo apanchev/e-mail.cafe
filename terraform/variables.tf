@@ -23,3 +23,9 @@ variable "domain_name" {
   description = "Domain name you want to use for the project. (ex: e-mail.cafe)"
   type        = string
 }
+
+variable "deploy_aws" {
+  description = "Define if the infra is deployed on AWS cloud provider."
+  type    = bool
+  default = false
+}

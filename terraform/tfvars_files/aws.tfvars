@@ -1,3 +1,4 @@
-env         = "prod"
-region      = "eu-west-1"
+deploy_aws  = true
+env         =
+region      =
 domain_name =

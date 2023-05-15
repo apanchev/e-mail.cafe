@@ -1,3 +1,3 @@
-bucket = 
-key    = 
-region = 
+bucket =
+key    =
+region =

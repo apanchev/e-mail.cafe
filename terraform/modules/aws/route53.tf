@@ -47,7 +47,7 @@ resource "aws_route53_record" "apprunner" {
   }
 }
 
-resource "aws_route53_record" "apprunner_acm_val_record0" {
+resource "aws_route53_record" "apprunner_acm_val_record" {
   for_each = {
     for record in tolist(aws_apprunner_custom_domain_association.webapp.certificate_validation_records): record.name => record
   }
@@ -58,4 +58,8 @@ resource "aws_route53_record" "apprunner_acm_val_record0" {
   ttl             = 60
   type            = each.value.type
   zone_id         = data.aws_route53_zone.main.zone_id
+
+  depends_on = [
+    aws_apprunner_custom_domain_association.webapp,
+  ]
 }
